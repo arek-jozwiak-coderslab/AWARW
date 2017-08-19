@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+</head>
+<body>
+	<h1>Witaj na stronie</h1>
+	<div id="promoinfo">
+		<h2>Przedstawiamy Ci promocje - jest to super promocja - jeżeli
+			nie jesteś zainteresowany kliknij w link poniżej</h2>
+		<a href="./promoinfo">Nie dziękuję</a>
+	</div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+		sed faucibus est, tincidunt ullamcorper tellus. Aliquam vehicula
+		finibus dolor nec blandit. Donec pharetra augue non tristique porta.
+		Vestibulum pellentesque vulputate sem, sit amet egestas risus porta
+</p>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		if ($.cookie('promoinfo') != undefined) {
+			$("#promoinfo").hide();
+		}
+	});
+</script>
+</html>
