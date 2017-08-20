@@ -7,8 +7,12 @@ public class Book {
 	private String author;
 	private String isbn;
 	
-	
-	
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + "]";
+	}
+	public Book() {
+	}
 	public int getId() {
 		return id;
 	}

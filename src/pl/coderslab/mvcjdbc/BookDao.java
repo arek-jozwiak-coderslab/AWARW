@@ -3,22 +3,38 @@ package pl.coderslab.mvcjdbc;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookDao {
 	// ZAPYTANIA SQL
 	private static final String CREATE_BOOK_QUERY = "INSERT INTO book(title,author,isbn) VALUES (?,?,?)";
 	private static final String DELETE_USER_QUERY = "DELETE FROM book where id = ?";
+	private static final String FIND_ALL_BOOKS_QUERY = "SELECT * FROM book";
 
-	// USUWANIE PO ID
-	public void delete(Integer userId) {
+	// LISTA WSZYSTKICH KSIAZEK
+	public List<Book> findAll() {
+		List<Book> bookList = new ArrayList<>();
 		try (Connection connection = DbUtil.getConnection();
-				PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY);) {
-			statement.setInt(1, userId);
-			statement.executeUpdate();
-		} catch (Exception e) {
+				PreparedStatement statement = connection.prepareStatement(FIND_ALL_BOOKS_QUERY);
+				ResultSet resultSet = statement.executeQuery()) {
+
+			while (resultSet.next()) {
+				Book userToAdd = new Book();
+				userToAdd.setId(resultSet.getInt("id"));
+				userToAdd.setTitle(resultSet.getString("title"));
+				userToAdd.setAuthor(resultSet.getString("author"));
+				userToAdd.setIsbn(resultSet.getString("isbn"));
+				bookList.add(userToAdd);
+			}
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Cos sie nie powiodło");
 		}
+		return bookList;
+
 	}
 
 	/**
@@ -54,6 +70,18 @@ public class BookDao {
 			System.out.println("Cos sie nie powiodło");
 		}
 		return null;
+	}
+
+	// USUWANIE PO ID
+	public void delete(Integer userId) {
+		try (Connection connection = DbUtil.getConnection();
+				PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY);) {
+			statement.setInt(1, userId);
+			statement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Cos sie nie powiodło");
+		}
 	}
 
 }

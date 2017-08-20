@@ -14,15 +14,28 @@ public class mvcjdbcadd extends HttpServlet {
        
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		getServletContext().getRequestDispatcher("/WEB-INF/mvcjdbc/jsp1.jsp").forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Book book = new Book();
+		book.setTitle(request.getParameter("title"));
+		book.setAuthor(request.getParameter("author"));
+		book.setIsbn(request.getParameter("isbn"));
+		
+		Book book2 = new Book(request.getParameter("title"), request.getParameter("author"),
+				request.getParameter("isbn"));
+		
+		response.getWriter().append(book.toString());
+		
 		BookDao bookDao = new BookDao();
-		bookDao.create(new Book(request.getParameter("title"), request.getParameter("author"), request.getParameter("isbn")));
+		bookDao.create(book);
+		
+		
 		//doGet(request, response);
 	}
 
