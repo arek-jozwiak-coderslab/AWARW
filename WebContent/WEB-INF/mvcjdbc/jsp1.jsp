@@ -6,11 +6,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header>MyHeader</header>
-<form action="" method="post">
-<input type="text" name="title" placeholder="title"/>
-<input type="text" name="author" placeholder="author"/>
-<input type="text" name="isbn" placeholder="isbn"/>
+
+<form action="/update-book" method="post">
+<input type="hidden" name="id" value="${book.id}"/>
+<input type="text" name="title" value="${book.title}" placeholder="title"/>
+<input type="text" name="author" value="${book.author}" placeholder="author"/>
+<input type="text" name="isbn" value="${book.isbn}" placeholder="isbn"/>
 <input type="submit"/>
 </form>
 

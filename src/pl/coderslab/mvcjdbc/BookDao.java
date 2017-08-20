@@ -10,8 +10,34 @@ import java.util.List;
 public class BookDao {
 	// ZAPYTANIA SQL
 	private static final String CREATE_BOOK_QUERY = "INSERT INTO book(title,author,isbn) VALUES (?,?,?)";
-	private static final String DELETE_USER_QUERY = "DELETE FROM book where id = ?";
+	private static final String DELETE_book_QUERY = "DELETE FROM book where id = ?";
 	private static final String FIND_ALL_BOOKS_QUERY = "SELECT * FROM book";
+	private static final String READ_BOOK_QUERY = "Select * from book where id = ?";
+	private static final String UPDATE_BOOK_QUERY = "UPDATE	book SET title = ? , author = ?, isbn = ? WHERE	id = ?";
+
+	
+	
+	// POBIERANIE bookA PO ID
+	public Book read(Integer bookId) {
+		Book book = new Book();
+		try (Connection connection = DbUtil.getConnection();
+				PreparedStatement statement = connection.prepareStatement(READ_BOOK_QUERY);) {
+			statement.setInt(1, bookId);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				while (resultSet.next()) {
+					book.setId(resultSet.getInt("id"));
+					book.setTitle(resultSet.getString("title"));
+					book.setAuthor(resultSet.getString("author"));
+					book.setIsbn(resultSet.getString("isbn"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Cos sie nie powiodło");
+		}
+		return book;
+
+	}
 
 	// LISTA WSZYSTKICH KSIAZEK
 	public List<Book> findAll() {
@@ -21,12 +47,12 @@ public class BookDao {
 				ResultSet resultSet = statement.executeQuery()) {
 
 			while (resultSet.next()) {
-				Book userToAdd = new Book();
-				userToAdd.setId(resultSet.getInt("id"));
-				userToAdd.setTitle(resultSet.getString("title"));
-				userToAdd.setAuthor(resultSet.getString("author"));
-				userToAdd.setIsbn(resultSet.getString("isbn"));
-				bookList.add(userToAdd);
+				Book bookToAdd = new Book();
+				bookToAdd.setId(resultSet.getInt("id"));
+				bookToAdd.setTitle(resultSet.getString("title"));
+				bookToAdd.setAuthor(resultSet.getString("author"));
+				bookToAdd.setIsbn(resultSet.getString("isbn"));
+				bookList.add(bookToAdd);
 			}
 
 		} catch (SQLException e) {
@@ -73,15 +99,33 @@ public class BookDao {
 	}
 
 	// USUWANIE PO ID
-	public void delete(Integer userId) {
+	public void delete(Integer bookId) {
 		try (Connection connection = DbUtil.getConnection();
-				PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY);) {
-			statement.setInt(1, userId);
+				PreparedStatement statement = connection.prepareStatement(DELETE_book_QUERY);) {
+			statement.setInt(1, bookId);
 			statement.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Cos sie nie powiodło");
 		}
+	}
+	
+	
+	// UPDATE
+	public void update(Book book) {
+		try (Connection connection = DbUtil.getConnection();
+				PreparedStatement statement = connection.prepareStatement(UPDATE_BOOK_QUERY);) {
+			statement.setInt(4, book.getId());
+			statement.setString(1, book.getTitle());
+			statement.setString(2, book.getAuthor());
+			statement.setString(3, book.getIsbn());
+
+			statement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Cos sie nie powiodło");
+		}
+
 	}
 
 }

@@ -12,15 +12,8 @@ public class DbUtil {
 	public static Connection getConnection() throws SQLException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+
 		}
 		return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 	}
