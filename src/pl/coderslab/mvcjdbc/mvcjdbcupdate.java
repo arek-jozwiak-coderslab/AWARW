@@ -14,16 +14,6 @@ public class mvcjdbcupdate extends HttpServlet {
        
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-		BookDao bookDao = new BookDao();
-		Book book = bookDao.read(id);
-		request.setAttribute("book", book);
-		getServletContext().getRequestDispatcher("/WEB-INF/mvcjdbc/jsp1.jsp").forward(request, response);
-	}
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BookDao bookDao = new BookDao();
 		

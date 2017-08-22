@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<form action="/update-book" method="post">
+<form action="" method="post">
 <input type="hidden" name="id" value="${book.id}"/>
 <input type="text" name="title" value="${book.title}" placeholder="title"/>
 <input type="text" name="author" value="${book.author}" placeholder="author"/>

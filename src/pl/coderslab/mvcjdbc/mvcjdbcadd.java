@@ -17,7 +17,7 @@ public class mvcjdbcadd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		getServletContext().getRequestDispatcher("/WEB-INF/mvcjdbc/jsp1.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/mvcjdbc/add.jsp").forward(request, response);
 	}
 
 
