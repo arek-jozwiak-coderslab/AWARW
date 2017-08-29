@@ -9,5 +9,11 @@
 </head>
 <body>
 <c:out value="${param.role}" default="guest"/>
+
+${cookie.User.value}
+<hr/>
+${cookie.foo.value}
+<hr/>
+${pageContext.request.contextPath}
 </body>
 </html>

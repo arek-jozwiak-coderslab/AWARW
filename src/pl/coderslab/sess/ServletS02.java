@@ -28,13 +28,16 @@ public class ServletS02 extends HttpServlet {
 		int[] grades = (int[]) sess.getAttribute("grades");
 		if (grade > 0 && grade < 7) {
 			if (sess.getAttribute("grades") == null) {
-				sess.setAttribute("grades", new int[] { grade });
+				grades = new int[] { grade };
 			} else {
-				sess.setAttribute("grades", addToGrades(grades, grade));
+				grades = addToGrades(grades, grade);
 			}
+			sess.setAttribute("grades", grades);
 		}
 		response.getWriter().append(Arrays.toString(grades));
-		response.getWriter().append("Avg = " + countAvg(grades));
+		if (grades != null) {
+			response.getWriter().append("Avg = " + countAvg(grades));
+		}
 
 	}
 
