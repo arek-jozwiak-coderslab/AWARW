@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,12 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:out value="${param.role}" default="guest"/>
-
-${cookie.User.value}
-<hr/>
-${cookie.foo.value}
-<hr/>
-${pageContext.request.contextPath}
+	<%!String str = "aaaaaaa";%>
+	<c:out value="<%=str%>" default="default value" />
+	<c:out value="${param.role}" default="guest" />
 </body>
 </html>

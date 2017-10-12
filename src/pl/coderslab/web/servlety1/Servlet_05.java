@@ -30,9 +30,7 @@ public class Servlet_05 extends HttpServlet {
 			response.getWriter().append("" + request.getHeader(headerName));
 			response.getWriter().append("<br/>");
 		}
-		
-		
-		
+			
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

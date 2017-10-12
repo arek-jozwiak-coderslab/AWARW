@@ -29,6 +29,10 @@
     <servlet-name>testServlet</servlet-name>
     <servlet-class>pl.coderslab.web.servlety2.Servlet02</servlet-class>
     <init-param>
+      <param-name>news-count</param-name>
+      <param-value>15</param-value>
+    </init-param>
+    <init-param>
       <param-name>myParam</param-name>
       <param-value>coderslab.pl</param-value>
     </init-param>

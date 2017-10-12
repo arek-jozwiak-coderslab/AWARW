@@ -23,9 +23,9 @@ public class ServletSGet extends HttpServlet {
 		if (sess.getAttribute("counter") == null) {
 			response.getWriter().append("Brak atrybutu");
 		} else {
-			int counter = (int) sess.getAttribute("counter");
+			int counter = (int) sess.getAttribute("counter") +1;
 
-			sess.setAttribute("counter", 1 + counter);
+			sess.setAttribute("counter", counter);
 			response.getWriter().append(counter + "");
 		}
 	}

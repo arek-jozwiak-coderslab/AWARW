@@ -17,10 +17,10 @@ public class ServletCGet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String USER_COOKIE_NAME = "User";
 
-	public String getCookieValue(Cookie[] cookies, String cookieNane) {
+	public String getCookieValue(Cookie[] cookies, String cookieName) {
 		String cookieValue = null;
 		for (Cookie c : cookies) {
-			if (USER_COOKIE_NAME.equals(c.getName())) {
+			if (cookieName.equals(c.getName())) {
 				cookieValue = c.getValue();
 			}
 		}
