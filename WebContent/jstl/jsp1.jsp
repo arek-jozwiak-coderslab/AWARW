@@ -15,5 +15,11 @@ ${cookie.User.value}
 ${cookie.foo.value}
 <hr/>
 ${pageContext.request.contextPath}
+<hr/>
+Jestem linkiem z context path
+<a href="<%=request.getContextPath() %>/Servlet02">Name</a>
+<hr/>
+Link z jstl:<a href='<c:url value="/Servlet02" />'Servlet02">Jestem linkiem z c url</a> <br/>
+
 </body>
 </html>

@@ -10,7 +10,7 @@ import java.util.List;
 public class BookDao {
 	// ZAPYTANIA SQL
 	private static final String CREATE_BOOK_QUERY = "INSERT INTO book(title,author,isbn) VALUES (?,?,?)";
-	private static final String DELETE_book_QUERY = "DELETE FROM book where id = ?";
+	private static final String DELETE_BOOK_QUERY = "DELETE FROM book where id = ?";
 	private static final String FIND_ALL_BOOKS_QUERY = "SELECT * FROM book";
 	private static final String READ_BOOK_QUERY = "Select * from book where id = ?";
 	private static final String UPDATE_BOOK_QUERY = "UPDATE	book SET title = ? , author = ?, isbn = ? WHERE	id = ?";
@@ -101,7 +101,7 @@ public class BookDao {
 	// USUWANIE PO ID
 	public void delete(Integer bookId) {
 		try (Connection connection = DbUtil.getConnection();
-				PreparedStatement statement = connection.prepareStatement(DELETE_book_QUERY);) {
+				PreparedStatement statement = connection.prepareStatement(DELETE_BOOK_QUERY);) {
 			statement.setInt(1, bookId);
 			statement.executeUpdate();
 		} catch (Exception e) {
