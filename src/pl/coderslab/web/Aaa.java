@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Aaa
  */
-@WebServlet("/aaa1")
+@WebServlet("/admin/users/add")
 public class Aaa extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,6 +23,7 @@ public class Aaa extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
