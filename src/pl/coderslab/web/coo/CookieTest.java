@@ -19,8 +19,8 @@ public class CookieTest extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Cookie newCookie = new Cookie("myCookie", "cookieValue");
-		response.addCookie(newCookie);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.addCookie(newCookie);
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 }

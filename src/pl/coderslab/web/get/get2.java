@@ -21,6 +21,7 @@ public class get2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Map<String, String[]> allMap = request.getParameterMap();
+		
 		Set<String> setKeys = allMap.keySet();
 		for (String key : setKeys) {
 			String[] strArr = allMap.get(key);

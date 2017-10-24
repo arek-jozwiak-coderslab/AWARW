@@ -22,8 +22,8 @@ public class Main1 {
 		// while and iterator
 		Iterator<Integer> it = elements.iterator();
 		while (it.hasNext()) {
-			Integer integer = (Integer) it.next();
-			System.out.println(integer);
+			Integer integerValue = (Integer) it.next();
+			System.out.println(integerValue);
 
 		}
 		System.out.println("-------------------------------");
