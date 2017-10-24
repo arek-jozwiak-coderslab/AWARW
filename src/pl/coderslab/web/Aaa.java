@@ -23,7 +23,7 @@ public class Aaa extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cookieName = WebUtils.getCookieValue("coo", request);
+		String cookieName = CookieWebUtils.getCookieValue("coo", request);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

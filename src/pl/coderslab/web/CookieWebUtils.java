@@ -4,7 +4,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class WebUtils {
+public class CookieWebUtils {
 
 	/**
 	 * Get cookie by name
@@ -13,7 +13,7 @@ public class WebUtils {
 	 * @param request
 	 * @return
 	 */
-	static String getCookieValue(String coookieName, HttpServletRequest request) {
+	public static String getCookieValue(String coookieName, HttpServletRequest request) {
 		String cookieValue = null;
 		for (Cookie c : request.getCookies()) {
 			if (coookieName.equals(c.getName())) {
@@ -30,7 +30,7 @@ public class WebUtils {
 	 * @param request
 	 * @param response
 	 */
-	static void deleteCookie(String coookieName, HttpServletRequest request, HttpServletResponse response) {
+	public static void deleteCookie(String coookieName, HttpServletRequest request, HttpServletResponse response) {
 		for (Cookie c : request.getCookies()) {
 			if (coookieName.equals(c.getName())) {
 				c.setMaxAge(0);

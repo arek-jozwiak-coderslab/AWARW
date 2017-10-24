@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pl.coderslab.web.CookieWebUtils;
+
 /**
  * Servlet implementation class Servlet_01_Get
  */
@@ -17,21 +19,14 @@ public class ServletCGet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static String USER_COOKIE_NAME = "User";
 
-	public String getCookieValue(Cookie[] cookies, String cookieName) {
-		String cookieValue = null;
-		for (Cookie c : cookies) {
-			if (cookieName.equals(c.getName())) {
-				cookieValue = c.getValue();
-			}
-		}
-		return cookieValue;
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		Cookie[] cookies = request.getCookies();
-		response.getWriter().append(getCookieValue(cookies, USER_COOKIE_NAME));
+		String cookieValue = CookieWebUtils.getCookieValue(USER_COOKIE_NAME, request);
+		if (cookieValue == null) {
+			response.getWriter().append("brak cookie");
+		} else {
+			response.getWriter().append("jest cookie" + cookieValue);
+		}
 	}
 
 }
