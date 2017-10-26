@@ -1,25 +1,21 @@
-package pl.coderslab.web.servlety2;
+package pl.coderslab.mvc;
 
 import java.io.IOException;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Servlet_01
- */
-@WebServlet("/Servlet_01")
-public class Servlet_01 extends HttpServlet {
+@WebServlet("/mvctest")
+public class MvcTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		response.getWriter().append(new Date().toString());
+		request.setAttribute("myAttribute", 123);
+		getServletContext().getRequestDispatcher("/mvctest.jsp").
+		forward(request, response);
 	}
 
 }

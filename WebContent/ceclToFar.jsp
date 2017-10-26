@@ -4,7 +4,9 @@
 <head>
 <title>Fahrenheit to Celsius</title>
 </head>
+
 <%@include file="/WEB-INF/header.jsp" %>
+
 <body>
 	<%!Date d1 = new Date();%>
 	<%!double fahrenheit = 100, celsius;%>

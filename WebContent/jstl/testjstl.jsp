@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<c:out value="${param.foo}" default="brak foo"/>
+
+
+
+<c:out value="<b> bold text </b>" escapeXml="true"/>
 	<%!String str = "aaaaaaa";%>
 	<c:out value="<%=str%>" default="default value" />
 	<c:out value="${param.role}" default="guest" />

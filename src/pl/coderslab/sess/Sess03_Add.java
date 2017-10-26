@@ -20,6 +20,7 @@ public class Sess03_Add extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter()
 				.append("<form action='' method='POST'> <label>"
@@ -27,13 +28,10 @@ public class Sess03_Add extends HttpServlet {
 						+ "<input type='text' name='value'></label> <input type='submit'></form>");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sess = request.getSession();
+		sess.setMaxInactiveInterval(15);
 		List<String> sessKeys = (List<String>) sess.getAttribute("sessKeys");
 		if (sessKeys == null) {
 			sessKeys = new ArrayList<String>();

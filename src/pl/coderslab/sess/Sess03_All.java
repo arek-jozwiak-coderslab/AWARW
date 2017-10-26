@@ -21,7 +21,8 @@ public class Sess03_All extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		List<String> sessKeys = (List<String>) sess.getAttribute("sessKeys");
-
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().append(sess.getMaxInactiveInterval() + "");
 		response.getWriter().append("<table>");
 		for (String string : sessKeys) {
 			response.getWriter().append("<tr>");

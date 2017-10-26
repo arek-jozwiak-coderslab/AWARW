@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Exchange rate: </title>
+<title>Insert title here</title>
 </head>
 <body>
-<h3>Exchange rate: </h3>
-${euro}
+JESTEM JSP
+<br/>
+to jest wartość z servletu : ${myAttribute}
 </body>
 </html>

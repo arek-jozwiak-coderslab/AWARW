@@ -53,7 +53,8 @@
     <servlet-name>testServlet</servlet-name>
     <url-pattern>/Servlet02</url-pattern>
   </servlet-mapping>
-  <servlet>
+  
+ <!--  <servlet>
     <servlet-name>mvc01</servlet-name>
     <servlet-class>pl.coderslab.mvc.Mvc01</servlet-class>
     <init-param>
@@ -65,6 +66,10 @@
     <servlet-name>mvc01</servlet-name>
     <url-pattern>/mvc01</url-pattern>
   </servlet-mapping>
+  -->
+  
+  
+  
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>pl.coderslab.sess.Login</servlet-class>
