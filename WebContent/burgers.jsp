@@ -21,7 +21,7 @@
 				<td>${burger.id}</td>
 				<td>${burger.name}</td>
 				<td>${burger.rating}</td>
-				<td><a href="">usun</a></td>
+				<td><a href="/deleteburger?id=${burger.id}">usun</a></td>
 			</tr>
 		</c:forEach>
 	</table>

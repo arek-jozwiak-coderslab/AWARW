@@ -9,15 +9,22 @@
 </head>
 <body>
 	<h1>Lista książek</h1>
+	<a href="<c:url value = "/add-book"/>">Dodaj książkę</a>
 	<table>
-	<tr><th>Title</th><th>Author</th><th>ISBN</th><th>Akcja</th></tr>
-		<c:forEach items="${books}" var="book">
 		<tr>
-		<td>${book.title}</td>
-		<td>${book.author}</td>
-		<td>${book.isbn}</td>
-		<td><a href="edit-book?id=${book.id}">Edytuj</a></td>
+			<th>Title</th>
+			<th>Author</th>
+			<th>ISBN</th>
+			<th>Akcja</th>
 		</tr>
+		<c:forEach items="${books}" var="book">
+			<tr>
+				<td>${book.title}</td>
+				<td>${book.author}</td>
+				<td>${book.isbn}</td>
+				<td><a href="edit-book?id=${book.id}">Edytuj</a></td>
+				<td><a href="delete-book?id=${book.id}">Usun</a></td>
+			</tr>
 		</c:forEach>
 
 	</table>

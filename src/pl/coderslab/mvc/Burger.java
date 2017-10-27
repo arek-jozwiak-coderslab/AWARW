@@ -6,8 +6,7 @@ public class Burger {
 	private String name;
 	private int rating;
 
-	public Burger() {
-	}
+
 
 	public Burger(int id, String name, int rating) {
 		this.id = id;

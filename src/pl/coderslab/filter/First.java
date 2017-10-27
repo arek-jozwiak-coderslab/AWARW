@@ -12,14 +12,11 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class First
  */
-@WebFilter("/admin/*")
+@WebFilter("/*")
 public class First implements Filter {
 
-	/**
-	 * @see Filter#destroy()
-	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+	
 	}
 
 	private String encoding = "utf-8";
