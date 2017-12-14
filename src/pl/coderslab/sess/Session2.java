@@ -18,17 +18,16 @@ public class Session2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		String counterName = "counter";
 		HttpSession sess = request.getSession();
 
-		if (sess.getAttribute("counter") == null) {
-			response.getWriter().append("Brak w sesji");
+		if (sess.getAttribute(counterName) == null) {
+			sess.setAttribute(counterName, 1);
 		} else {
-			int counter = (int) sess.getAttribute("counter") + 1;
-			
-			
-			sess.setAttribute("counter", counter);
-			response.getWriter().append(counter + "");
+			int counter = (int) sess.getAttribute(counterName) + 1;
+			sess.setAttribute(counterName, counter);
 		}
+		response.getWriter().append(sess.getAttribute(counterName).toString());
 
 	}
 

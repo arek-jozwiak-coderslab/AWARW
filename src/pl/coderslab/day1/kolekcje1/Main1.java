@@ -1,12 +1,14 @@
 package pl.coderslab.day1.kolekcje1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 public class Main1 {
 
 	public static void main(String[] args) {
+		
 
 		// create list
 		List<Integer> elements = new ArrayList<>();
@@ -22,13 +24,13 @@ public class Main1 {
 		// while and iterator
 		Iterator<Integer> it = elements.iterator();
 		while (it.hasNext()) {
-			Integer integerValue = (Integer) it.next();
+			Integer integerValue = it.next();
 			System.out.println(integerValue);
 
 		}
 		System.out.println("-------------------------------");
 		for (Iterator<Integer> iter = elements.iterator(); iter.hasNext();) {
-			Integer integer = (Integer) iter.next();
+			Integer integer = iter.next();
 			System.out.println(integer);
 		}
 		System.out.println("-------------------------------");
@@ -37,6 +39,9 @@ public class Main1 {
 			System.out.println(integer);
 		}
 		System.out.println("-------------------------------");
+		System.out.println("java 8");
+		
+		elements.stream().forEach(System.out::println);
 
 	}
 

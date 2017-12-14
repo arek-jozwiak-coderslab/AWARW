@@ -16,6 +16,7 @@ public class Cookie2 extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		Cookie cookie = new Cookie(request.getParameter("key"),
 				StringUtils.deleteWhitespace(request.getParameter("value")));
 		cookie.setMaxAge(60 * 60 * 24);

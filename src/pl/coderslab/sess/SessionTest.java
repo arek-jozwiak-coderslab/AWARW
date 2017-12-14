@@ -9,21 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Session1
+ * Servlet implementation class SessionTest
  */
-@WebServlet("/Session1")
-public class Session1 extends HttpServlet {
+@WebServlet("/sessiontest")
+public class SessionTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		HttpSession sess = request.getSession();
-		Integer iii = 0;
-
-		sess.setAttribute("counter", iii);
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		if (sess.isNew()) {
+			response.getWriter().append("session is new");
+		} else {
+			response.getWriter().append("not new");
+		}
 	}
 
 }

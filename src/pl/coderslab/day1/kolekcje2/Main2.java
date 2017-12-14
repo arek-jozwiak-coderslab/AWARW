@@ -34,3 +34,5 @@ public class Main2 {
 		return map;
 	}
 }
+
+//http://javarevisited.blogspot.com/2011/02/how-hashmap-works-in-java.html

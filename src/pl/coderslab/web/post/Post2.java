@@ -22,6 +22,7 @@ public class Post2 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<String> list = Arrays.asList(new String[] { "dupa", "dupa2" });
+		
 		String message = request.getParameter("message");
 		String confirm = request.getParameter("confirm");
 		if (confirm == null) {

@@ -1,9 +1,13 @@
 package pl.coderslab.day1.kolekcje1;
 
+import java.util.List;
+import java.util.Map;
+
 public class City {
 
 	private String name;
 	private int population;
+	
 	
 	@Override
 	public String toString() {

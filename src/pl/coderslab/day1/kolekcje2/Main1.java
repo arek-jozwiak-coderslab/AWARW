@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Main1 {
 
-	private static final String MESSAGE_PRINT_TEMPLATE = "Podanych napisów: %d, Rozmiar kolekcji: :%s";
+	private static final String MESSAGE_PRINT_TEMPLATE = "Podanych napisów: %d, Rozmiar kolekcji: %s";
 	private static final String MESSAGE_PRINT_SUMMARY = "Napisy z kolekcji:";
 	private static final String EXIT_STRING = "exit";
 
@@ -27,7 +27,7 @@ public class Main1 {
 
 		}
 		System.out.println(String.format(MESSAGE_PRINT_TEMPLATE, count, set.size()));
-		System.out.println(String.format(MESSAGE_PRINT_SUMMARY));
+		System.out.println(MESSAGE_PRINT_SUMMARY);
 		for (String string : set) {
 			System.out.println(string);
 		}

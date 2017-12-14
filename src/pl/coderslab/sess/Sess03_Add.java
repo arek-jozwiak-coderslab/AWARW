@@ -1,8 +1,8 @@
 package pl.coderslab.sess;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 public class Sess03_Add extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -31,13 +34,15 @@ public class Sess03_Add extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession sess = request.getSession();
-		sess.setMaxInactiveInterval(15);
-		List<String> sessKeys = (List<String>) sess.getAttribute("sessKeys");
+
+		Set<String> sessKeys = (Set<String>) sess.getAttribute("sessKeys");
+		
 		if (sessKeys == null) {
-			sessKeys = new ArrayList<String>();
+			sessKeys = new HashSet<String>();
 		}
 		sessKeys.add(request.getParameter("key"));
 		sess.setAttribute("sessKeys", sessKeys);
+		
 		sess.setAttribute(request.getParameter("key"), request.getParameter("value"));
 
 	}

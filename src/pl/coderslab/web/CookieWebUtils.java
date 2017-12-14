@@ -25,7 +25,6 @@ public class CookieWebUtils {
 
 	/**
 	 * Remove cookie
-	 * 
 	 * @param coookieName
 	 * @param request
 	 * @param response

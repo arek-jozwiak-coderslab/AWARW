@@ -18,7 +18,8 @@ public class ServletS02 extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().append("<form action='' method='POST'>"
-				+ "<label>Ocena: <input type='text' name='grade'></label>" + "<input type='submit'></form>");
+				+ "<label>Ocena: <input type='text' name='grade'></label>" + 
+				"<input type='submit'></form>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

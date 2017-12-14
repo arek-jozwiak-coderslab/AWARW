@@ -29,7 +29,8 @@ public class Main2 {
 		for (Integer integer : removedList) {
 			System.out.println(integer);
 		}
-
+		System.out.println("-------------");
+		elements.stream().forEach(System.out::println);
 	}
 }
 // https://stackoverflow.com/questions/28112309/unsupportedoperationexception-when-using-iterator-remove

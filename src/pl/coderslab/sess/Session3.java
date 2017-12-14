@@ -23,6 +23,7 @@ public class Session3 extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
+		
 		session.removeAttribute("counter");
 	}
 
