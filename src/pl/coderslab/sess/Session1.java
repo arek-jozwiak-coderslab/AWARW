@@ -19,11 +19,7 @@ public class Session1 extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession sess = request.getSession();
-		Integer iii = 0;
-
-		sess.setAttribute("counter", iii);
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		sess.setAttribute("counter", 0);
 	}
 
 }

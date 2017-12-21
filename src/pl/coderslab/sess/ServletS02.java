@@ -1,6 +1,7 @@
 package pl.coderslab.sess;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javax.servlet.ServletException;
@@ -17,23 +18,31 @@ public class ServletS02 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().append("<form action='' method='POST'>"
-				+ "<label>Ocena: <input type='text' name='grade'></label>" + 
+		response.getWriter().append("<form method='POST'>"
+				+ "<label>Ocena: <input type='text' name='grade'></label>" +
 				"<input type='submit'></form>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		HttpSession sess = request.getSession();
+		
 		int grade = Integer.parseInt(request.getParameter("grade"));
+		
 		int[] grades = (int[]) sess.getAttribute("grades");
+		
 		if (grade > 0 && grade < 7) {
+			
 			if (sess.getAttribute("grades") == null) {
 				grades = new int[] { grade };
 			} else {
 				grades = addToGrades(grades, grade);
 			}
 			sess.setAttribute("grades", grades);
+			
+		}else{
+			response.getWriter().append("Nieprawidłowy parametr");
 		}
 		response.getWriter().append(Arrays.toString(grades));
 		if (grades != null) {

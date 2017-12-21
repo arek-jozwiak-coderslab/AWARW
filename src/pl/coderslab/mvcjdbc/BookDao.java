@@ -21,7 +21,9 @@ public class BookDao {
 	public Book read(Integer bookId) {
 		Book book = new Book();
 		try (Connection connection = DbUtil.getConnection();
-				PreparedStatement statement = connection.prepareStatement(READ_BOOK_QUERY);) {
+				PreparedStatement statement = connection.prepareStatement(READ_BOOK_QUERY);
+				
+				) {
 			statement.setInt(1, bookId);
 			try (ResultSet resultSet = statement.executeQuery()) {
 				while (resultSet.next()) {

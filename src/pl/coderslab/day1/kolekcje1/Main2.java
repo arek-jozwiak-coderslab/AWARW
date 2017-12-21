@@ -5,7 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Main2 {
-
+	
+	
 	public static List<Integer> removeDivider(List<Integer> list, int divider) {
 		Iterator<Integer> it = list.iterator();
 		while (it.hasNext()) {

@@ -1,7 +1,9 @@
 package pl.coderslab.web.servlety1;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +24,8 @@ public class Servlet_05 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+
 		Enumeration<String> headerNames = request.getHeaderNames();
 		response.setContentType("text/html");
 		while (headerNames.hasMoreElements()) {
@@ -32,6 +36,12 @@ public class Servlet_05 extends HttpServlet {
 		}
 			
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Collection<String>  respHead= response.getHeaderNames();
+		System.out.println("respoHead.size" + respHead.size());
+		for (String string : respHead) {
+			System.out.println(string);
+		}
+		
 	}
 
 	/**

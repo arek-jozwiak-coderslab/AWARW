@@ -14,20 +14,21 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Session2")
 public class Session2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String COOKIE_NAME = "counter";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String counterName = "counter";
 		HttpSession sess = request.getSession();
 
-		if (sess.getAttribute(counterName) == null) {
-			sess.setAttribute(counterName, 1);
+		if (sess.getAttribute(COOKIE_NAME) == null) {
+			sess.setAttribute(COOKIE_NAME, 0);
+			response.getWriter().append("Brak atrybutu");
 		} else {
-			int counter = (int) sess.getAttribute(counterName) + 1;
-			sess.setAttribute(counterName, counter);
+			int counter = (int) sess.getAttribute(COOKIE_NAME) + 1;
+			sess.setAttribute(COOKIE_NAME, counter);
+			response.getWriter().append(sess.getAttribute(COOKIE_NAME).toString());
 		}
-		response.getWriter().append(sess.getAttribute(counterName).toString());
 
 	}
 

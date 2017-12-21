@@ -18,12 +18,7 @@ public class mvcjdbcddelete extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		BookDao bookDao = new BookDao();
 		bookDao.delete(id);
-		response.getWriter().append("usunieto");
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		response.sendRedirect(request.getContextPath() + "/all-books");
 	}
 
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Wypełnij dane</h1>
+	<a href="/AWARW/someForm?first=aa&second=bb&someSelect=1">Some link
+		1</a>
+	<a href="/AWARW/someForm?first=cc&second=dd&someSelect=2">Some link
+		2</a>
+	<a href="/AWARW/someForm?first=ee&second=ff&someSelect=3">Some link</a>
+
+	<form action="/AWARW/someForm">
+		<input type="hidden" value="1" name="id" /> <input type="hidden"
+			name="first" value="first" /> <input type="hidden" name="second"
+			value="second" /> <input type="hidden" name="someSelect" value="1" />
+		<input type="submit" />
+	</form>
+	<hr />
+
+	<form action="/AWARW/someForm" method="post">
+		<input type="hidden" value="1" name="id" /> <input type="text"
+			name="first" value="default value" /> <input type="text"
+			name="second" /> <select name="someMulti" multiple="multiple">
+			<option value="1">jeden</option>
+			<option value="2">dwa</option>
+			<option value="3">trzy</option>
+		</select> Wybierz dodatki: <input type="checkbox" name="toppings"
+			value="cheese"> Dodatkowy ser <input type="checkbox"
+			name="toppings" value="ham"> Dodatkowa szynka <input
+			type="checkbox" name="toppings" value="pineaple"> Ananas <input
+			type="checkbox" name="toppings" value="tomato"> Pomidor <input
+			type="checkbox" name="toppings" value="salami"> Salami <select
+			name="someSelect">
+			<option value="1">jeden</option>
+			<option value="2">dwa</option>
+			<option value="3">trzy</option>
+		</select> <input type="submit" />
+	</form>
+</body>
+</html>
